@@ -10,15 +10,18 @@ export const Container = styled.View<Props>`
   flex: 1;
   padding:0px 24px;
   padding-top:  ${({cheked}) =>cheked ? 10 : 0}px;
+  
 `;
 
 export const Content = styled.View`
 flex-direction: row;
 
+
 `
 export const PizzaImg = styled.Image` 
 width: 114px;
 height: 122px;
+border-radius: 13px;
 `
 export const Properties = styled.View`
  margin-top: 15px;

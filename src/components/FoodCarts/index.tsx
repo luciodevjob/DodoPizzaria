@@ -23,7 +23,7 @@ export function FoodCarts({img, title, description, price, cheked}: Props) {
   return (
     <Container cheked={cheked}>
         {cheked ?
-    <LinearGradient colors={[theme.colors.background_locale,theme.colors.background_primary]} start={[0, 1]} end={[1, 0]}>
+    <LinearGradient style={{borderRadius: 13}} colors={[theme.colors.background_locale,theme.colors.background_primary]} start={[0, 1]} end={[1, 0]}>
         <Content>
 
             <PizzaImg source={img}/>
