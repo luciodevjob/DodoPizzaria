@@ -83,7 +83,7 @@ function handleCategorySelect(categoryId: string){
          />
           <HeaderContent>
             <Logo width={RFValue(183)} height={30}/>
-            <ButtonCarts onPress={() => Alert.alert('to funcionando porra')}>
+            <ButtonCarts onPress={() => Alert.alert('to funcionando')}>
             <FontAwesome5 
               name="shopping-cart" 
               size={24} 
