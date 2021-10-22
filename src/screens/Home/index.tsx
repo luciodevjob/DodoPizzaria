@@ -5,24 +5,13 @@ import { FontAwesome5 } from '@expo/vector-icons';
 
 import { ButtonCarts, Container, FoofWapper, Header, HeaderContent, Localization, LocalizationContent, TextLocation,} from './styles';
 import { useTheme } from 'styled-components';
-import { Alert, FlatList, ImageProps, StatusBar } from 'react-native';
+import { Alert, StatusBar } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { FoodCarts } from '../../components/FoodCarts';
 
 import { Ionicons } from '@expo/vector-icons';
 import { Menu } from '../../components/Menu';
 
-import logopizza from '../../assets/Pizza.png'
-import salada from '../../assets/salada.png'
-import fritas from '../../assets/fritas.png'
-import sobremesa from '../../assets/sobremesa.png'
-import drinks from '../../assets/bebidas.png'
-import Margarita from '../../assets/margarita.png'
-import pepperoni from '../../assets/pepperoni.png'
-import frango from '../../assets/Frango.png'
-import vegentariana from '../../assets/vegetariana.png'
-import calabresa from '../../assets/calabresa.png'
-import { MenuWapper } from '../../components/Menu/styles';
 import { api } from '../../services/api';
 import { foodDTOS } from '../../components/dtos/FoodDTOS';
 import { getFoodImagens } from '../../Utis/getFoodImagens';
