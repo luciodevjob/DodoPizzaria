@@ -120,6 +120,46 @@
             "title": "Batata Frita",
             "description": "Brizola empanado com abacaxi",
             "price": 12
+          },
+          {
+            "key": "12",
+            "type": "salada",
+            "img": "salada",
+            "title": "Batata Frita",
+            "description": "Brizola empanado com abacaxi",
+            "price": 12
+          },
+          {
+            "key": "13",
+            "type": "salada",
+            "img": "salada",
+            "title": "Batata Frita",
+            "description": "Brizola empanado com abacaxi",
+            "price": 12
+          },
+          {
+            "key": "14",
+            "type": "salada",
+            "img": "salada",
+            "title": "Batata Frita",
+            "description": "Brizola empanado com abacaxi",
+            "price": 12
+          },
+          {
+            "key": "15",
+            "type": "salada",
+            "img": "salada",
+            "title": "Batata Frita",
+            "description": "Brizola empanado com abacaxi",
+            "price": 12
+          },
+          {
+            "key": "16",
+            "type": "salada",
+            "img": "salada",
+            "title": "Batata Frita",
+            "description": "Brizola empanado com abacaxi",
+            "price": 12
           }
           ]
     }

@@ -25,6 +25,7 @@ import calabresa from '../../assets/calabresa.png'
 import { MenuWapper } from '../../components/Menu/styles';
 import { api } from '../../services/api';
 import { foodDTOS } from '../../components/dtos/FoodDTOS';
+import { getFoodImagens } from '../../Utis/getFoodImagens';
 
 
 
@@ -35,27 +36,30 @@ interface MenuCard {
 }
 
 interface foodCarts {
-  foodMenu: [{
+
     key: string,
     type: string,
-    img: ImageProps,
+    img: string,
     title: string,
     description: string,
     price: number,
-  }],
+
 }
 
 
 export function Home(){
   const theme = useTheme();
   const [foodMenu, setFoodMenu] = useState<foodDTOS[]>([])
+  const [food, setFood] = useState<foodCarts[]>([])
   const [categories, setCategories] = useState('pizza')
 
   useEffect(() => {
     try {
     async function fetchCar() {
       const response = await api.get('/food')
+      const responseMenu = await api.get('/foodMenu')
       setFoodMenu(response.data)
+      setFood(responseMenu.data)
     
     }
     fetchCar()
@@ -63,43 +67,11 @@ export function Home(){
   catch (error) {}
    
   },[]);
-  console.log(foodMenu);
-
+  
 function handleCategorySelect(categoryId: string){
  
   setCategories(categoryId)
 }
-
-  const food = [
-    {
-    key: '1',
-    img: logopizza,
-    title: 'pizza',
-    },
-    {
-      key: '2',
-      img: salada,
-      title: 'salada',
-      },
-      {
-        key: '3',
-        img: fritas,
-        title: 'fritas',
-        },
-        {
-          key: '4',
-          img: sobremesa,
-          title: 'sobremesa',
-          },
-          {
-            key: '5',
-            img: drinks,
-            title: 'drinks',
-            },
-
-            
-
-]
 
   const pizza =[{
     key: '1',
@@ -229,11 +201,11 @@ function handleCategorySelect(categoryId: string){
          showsHorizontalScrollIndicator={false}
          >
            {
-             food.map(item => (
+             foodMenu.map(item => (
                <Menu 
                key={item.key}
                title={item.title}
-               img={item.img}
+               img={getFoodImagens(item.img)}
                cheked={item.title === categories}
                onPress={() => handleCategorySelect(item.title)}
                />
@@ -249,11 +221,11 @@ function handleCategorySelect(categoryId: string){
             <FoofWapper>
            {
           
-             pizza.map(item => (
+              food.map(item => (
               <FoodCarts
-              cheked={item.type == categories}
+              cheked={item.type === categories}
               key={item.key}
-              img={item.img}
+              img={getFoodImagens(item.img)}
               title={item.title}
               description={item.description}
               price={item.price}
