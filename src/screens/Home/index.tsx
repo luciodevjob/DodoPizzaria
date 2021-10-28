@@ -13,16 +13,28 @@ import { Ionicons } from '@expo/vector-icons';
 import { Menu } from '../../components/Menu';
 
 import { api } from '../../services/api';
-import { foodDTOS } from '../../components/dtos/FoodDTOS';
+import { foodDTO, } from '../../components/dtos/FoodDTO';
 import { getFoodImagens } from '../../Utis/getFoodImagens';
+import { AddCarts } from '../../components/AddCarts';
 
 
 
 interface MenuCard {
-  key: any,
-  img: any,
-  title: any,
+  key: string,
+  img: string,
+  title: string,
 }
+
+export interface PropsResquest {
+
+   pedido: { name: string,
+    tamanho: string
+    estilo: string
+    adicionar: string
+    total:  string}
+  
+  }
+
 
 interface foodCarts {
 
@@ -32,23 +44,35 @@ interface foodCarts {
     title: string,
     description: string,
     price: number,
+    setRequest: PropsResquest
 
+}
+
+interface propsFood {
+  data: foodDTO[],
+}
+interface Props {
+  data: foodCarts
 }
 
 
 export function Home(){
   const theme = useTheme();
-  const [foodMenu, setFoodMenu] = useState<foodDTOS[]>([])
+  const [foodMenu, setFoodMenu] = useState<foodDTO[]>([])
   const [food, setFood] = useState<foodCarts[]>([])
   const [categories, setCategories] = useState('pizza')
+
+  const [request, setRequest] = useState<PropsResquest>()
+  
+  console.log(request)
 
   useEffect(() => {
     try {
     async function fetchCar() {
-      const response = await api.get('/food')
-      const responseMenu = await api.get('/foodMenu')
-      setFoodMenu(response.data)
-      setFood(responseMenu.data)
+      const response = await api.get('/food') 
+      const responseMenu = await api.get('/foodMenu') 
+      setFoodMenu(response.data as foodDTO[])
+      setFood(responseMenu.data as foodCarts[])
     
     }
     fetchCar()
@@ -95,7 +119,8 @@ function handleCategorySelect(categoryId: string){
          >
            {
              foodMenu.map(item => (
-               <Menu 
+               <Menu
+               
                key={item.key}
                title={item.title}
                img={getFoodImagens(item.img)}
@@ -110,8 +135,10 @@ function handleCategorySelect(categoryId: string){
 
         <ScrollView
          showsVerticalScrollIndicator={false}
+         
          >
             <FoofWapper>
+              
            {
           
               food.map(item => (
@@ -122,13 +149,13 @@ function handleCategorySelect(categoryId: string){
               title={item.title}
               description={item.description}
               price={item.price}
+              setRequest={setRequest}
               />
              ))
            }
            </FoofWapper>
          </ScrollView>
       
-       
     </Container>
   );
 }

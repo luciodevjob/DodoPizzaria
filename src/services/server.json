@@ -1,165 +1,237 @@
-
 {
-   "food":[
+  "food": [
     {
-    "key": "1",
-    "img": "logopizza",
-    "title": "pizza"
+      "key": "1",
+      "img": "logopizza",
+      "title": "pizza"
     },
     {
-    "key": "2",
-    "img": "salada",
-    "title": "salada"
+      "key": "2",
+      "img": "salada",
+      "title": "salada"
     },
     {
-    "key": "3",
-    "img": "fritas",
-    "title": "fritas"
+      "key": "3",
+      "img": "fritas",
+      "title": "fritas"
     },
     {
-    "key": "4",
-    "img": "sobremesa",
-    "title": "sobremesa"
+      "key": "4",
+      "img": "sobremesa",
+      "title": "sobremesa"
     },
     {
-    "key": "5",
-    "img": "drinks",
-    "title": "drinks"
+      "key": "5",
+      "img": "drinks",
+      "title": "drinks"
     }
-],
-           "foodMenu":[
-            {
-            "key": "1",
-            "type": "pizza",
-            "img": "Margarita",
-            "title": "Margarita",
-            "description": 
-            "Médio | Queijo, cebola e tomate puro",
-            "price": 12
-           },
-           {
-            "key": "2",
-            "type": "pizza",
-            "img": "pepperoni",
-            "title": "Pepperoni clássica",
-            "description": 
-            "Médio | Queijo, pimenta húngara, paneer, pimentão e cebola",
-            "price": 12
-           },
-           {
-            "key": "3",
-            "type": "pizza",
-            "img": "frango",
-            "title": "Frango Supremo",
-            "description": 
-            "Médio | Queijo, pimenta húngara, paneer, pimentão e cebola",
-            "price": 12
-           },
-           {
-            "key": "4",
-            "type": "pizza",
-            "img": "vegentariana",
-            "title": "Vegentariana",
-            "description": 
-            "Médio | Queijo, pimenta húngara, paneer, pimentão e cebola",
-            "price": 12
-           },
-           {
-            "key": "5",
-            "type": "pizza",
-            "img": "calabresa",
-            "title": "Calabresa",
-            "description": 
-            "Médio | Queijo, pimenta húngara, paneer, pimentão e cebola",
-            "price": 12
-           },
-           {
-             "key": "6",
-             "type": "fritas",
-             "img": "fritas",
-             "title": "Batata Frita",
-             "description": "Brizola empanado com abacaxi",
-             "price": 12
-           },
-           {
-            "key": "7",
-            "type": "fritas",
-            "img": "fritas",
-            "title": "Batata Frita",
-            "description": "Brizola empanado com abacaxi",
-            "price": 12
-          },
-          {
-            "key": "8",
-            "type": "fritas",
-            "img": "fritas",
-            "title": "Batata Frita",
-            "description": "Brizola empanado com abacaxi",
-            "price": 12
-          },
-          {
-            "key": "9",
-            "type": "fritas",
-            "img": "fritas",
-            "title": "Batata Frita",
-            "description": "Brizola empanado com abacaxi",
-            "price": 12
-          },
-          {
-            "key": "10",
-            "type": "fritas",
-            "img": "fritas",
-            "title": "Batata Frita",
-            "description": "Brizola empanado com abacaxi",
-            "price": 12
-          },
-          {
-            "key": "11",
-            "type": "fritas",
-            "img": "fritas",
-            "title": "Batata Frita",
-            "description": "Brizola empanado com abacaxi",
-            "price": 12
-          },
-          {
-            "key": "12",
-            "type": "salada",
-            "img": "salada",
-            "title": "Batata Frita",
-            "description": "Brizola empanado com abacaxi",
-            "price": 12
-          },
-          {
-            "key": "13",
-            "type": "salada",
-            "img": "salada",
-            "title": "Batata Frita",
-            "description": "Brizola empanado com abacaxi",
-            "price": 12
-          },
-          {
-            "key": "14",
-            "type": "salada",
-            "img": "salada",
-            "title": "Batata Frita",
-            "description": "Brizola empanado com abacaxi",
-            "price": 12
-          },
-          {
-            "key": "15",
-            "type": "salada",
-            "img": "salada",
-            "title": "Batata Frita",
-            "description": "Brizola empanado com abacaxi",
-            "price": 12
-          },
-          {
-            "key": "16",
-            "type": "salada",
-            "img": "salada",
-            "title": "Batata Frita",
-            "description": "Brizola empanado com abacaxi",
-            "price": 12
-          }
-          ]
+  ],
+  "foodMenu": [
+    {
+      "key": "1",
+      "type": "pizza",
+      "img": "Margarita",
+      "title": "Margarita",
+      "description": "Médio | Queijo, cebola e tomate puro",
+      "price": 12
+    },
+    {
+      "key": "2",
+      "type": "pizza",
+      "img": "pepperoni",
+      "title": "Pepperoni clássica",
+      "description": "Médio | Queijo, pimenta húngara, paneer, pimentão e cebola",
+      "price": 12
+    },
+    {
+      "key": "3",
+      "type": "pizza",
+      "img": "frango",
+      "title": "Frango Supremo",
+      "description": "Médio | Queijo, pimenta húngara, paneer, pimentão e cebola",
+      "price": 12
+    },
+    {
+      "key": "4",
+      "type": "pizza",
+      "img": "vegentariana",
+      "title": "Vegentariana",
+      "description": "Médio | Queijo, pimenta húngara, paneer, pimentão e cebola",
+      "price": 12
+    },
+    {
+      "key": "5",
+      "type": "pizza",
+      "img": "calabresa",
+      "title": "Calabresa",
+      "description": "Médio | Queijo, pimenta húngara, paneer, pimentão e cebola",
+      "price": 12
+    },
+    {
+      "key": "6",
+      "type": "fritas",
+      "img": "fritas",
+      "title": "Batata Frita",
+      "description": "Brizola empanado com abacaxi",
+      "price": 12
+    },
+    {
+      "key": "7",
+      "type": "fritas",
+      "img": "fritas",
+      "title": "Batata Frita",
+      "description": "Brizola empanado com abacaxi",
+      "price": 12
+    },
+    {
+      "key": "8",
+      "type": "fritas",
+      "img": "fritas",
+      "title": "Batata Frita",
+      "description": "Brizola empanado com abacaxi",
+      "price": 12
+    },
+    {
+      "key": "9",
+      "type": "fritas",
+      "img": "fritas",
+      "title": "Batata Frita",
+      "description": "Brizola empanado com abacaxi",
+      "price": 12
+    },
+    {
+      "key": "10",
+      "type": "fritas",
+      "img": "fritas",
+      "title": "Batata Frita",
+      "description": "Brizola empanado com abacaxi",
+      "price": 12
+    },
+    {
+      "key": "11",
+      "type": "fritas",
+      "img": "fritas",
+      "title": "Batata Frita",
+      "description": "Brizola empanado com abacaxi",
+      "price": 12
+    },
+    {
+      "key": "12",
+      "type": "salada",
+      "img": "salada",
+      "title": "Batata Frita",
+      "description": "Brizola empanado com abacaxi",
+      "price": 12
+    },
+    {
+      "key": "13",
+      "type": "salada",
+      "img": "salada",
+      "title": "Batata Frita",
+      "description": "Brizola empanado com abacaxi",
+      "price": 12
+    },
+    {
+      "key": "14",
+      "type": "salada",
+      "img": "salada",
+      "title": "Batata Frita",
+      "description": "Brizola empanado com abacaxi",
+      "price": 12
+    },
+    {
+      "key": "15",
+      "type": "salada",
+      "img": "salada",
+      "title": "Batata Frita",
+      "description": "Brizola empanado com abacaxi",
+      "price": 12
+    },
+    {
+      "key": "16",
+      "type": "salada",
+      "img": "salada",
+      "title": "Batata Frita",
+      "description": "Brizola empanado com abacaxi",
+      "price": 12
     }
+  ],
+  "confirm": [
+    {
+      "pedido": {
+        "name": "Calabresa",
+        "tamanho": {
+          "name": "Media - 10”",
+          "price": "12"
+        },
+        "estilo": {
+          "name": "Massa Classica",
+          "price": "0"
+        },
+        "adicionar": {
+          "name": "Adicionar queijo extra",
+          "price": "2.50"
+        },
+        "total": 14.5
+      },
+      "id": 1
+    },
+    {
+      "pedido": {
+        "name": "Pepperoni clássica",
+        "tamanho": {
+          "name": "Grande - 14”",
+          "price": "16"
+        },
+        "estilo": {
+          "name": "Massa Fina",
+          "price": "0"
+        },
+        "adicionar": {
+          "name": "Adicionar marshmallow",
+          "price": "2.50"
+        },
+        "total": 18.5
+      },
+      "id": 2
+    },
+    {
+      "pedido": {
+        "name": "Margarita",
+        "tamanho": {
+          "name": "Media - 10”",
+          "price": "12"
+        },
+        "estilo": {
+          "name": "Massa Classica",
+          "price": "0"
+        },
+        "adicionar": {
+          "name": "Adicionar queijo extra",
+          "price": "2.50"
+        },
+        "total": 14.5
+      },
+      "id": 3
+    },
+    {
+      "pedido": {
+        "name": "Margarita",
+        "tamanho": {
+          "name": "Pequena - 6”",
+          "price": "8"
+        },
+        "estilo": {
+          "name": "Massa Fina",
+          "price": "0"
+        },
+        "adicionar": {
+          "name": "Adicionar queijo extra",
+          "price": "2.50"
+        },
+        "total": 10.5
+      },
+      "id": 4
+    }
+  ]
+}

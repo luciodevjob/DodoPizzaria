@@ -10,11 +10,14 @@ export const Container = styled.View<Props>`
   flex: 1;
   padding:0px 24px;
   padding-top:  ${({cheked}) =>cheked ? 10 : 0}px;
-  
+  border-radius: 13px;
+ 
 `;
 
 export const Content = styled.View`
 flex-direction: row;
+border-radius: 13px;
+
 
 
 `
@@ -67,4 +70,8 @@ font-family: ${({theme}) => theme.fonts.primary_800};
 font-size: ${RFValue(13)}px;
 
 color: ${({theme}) => theme.colors.title_white};
+`
+
+export const AddContainer = styled.View`
+
 `

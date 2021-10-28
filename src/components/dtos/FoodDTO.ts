@@ -1,6 +1,6 @@
 import { ImageProps } from "react-native";
 
-export interface foodDTOS {
+export interface foodDTO {
     img: string,
     key: string,
     title: string

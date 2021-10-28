@@ -24,8 +24,10 @@ border-radius: 12px;
 margin-top: 17px;
 border: 1px solid;
 border-color: ${({theme,cheked}) =>cheked ? theme.colors.Carts : 0};
-align-items: center;
 
+
+
+align-items: center;
 `
 export const MenuWapper = styled.View`
 align-items: center;

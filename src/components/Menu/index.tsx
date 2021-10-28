@@ -20,9 +20,9 @@ export function Menu(
     ){
    
   return (
-    <Container>
+    <Container style={{elevation: 5}}>
        
-        <MenuCard cheked={cheked} {...rest}>
+        <MenuCard cheked={cheked}  {...rest}>
         <MenuWapper >
             <ImageFood source={img}/>
             <TextFood>{title}</TextFood>

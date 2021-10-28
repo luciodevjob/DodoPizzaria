@@ -3,10 +3,21 @@ import React from 'react';
 import { ImageProps } from 'react-native';
 import { RectButtonProps } from 'react-native-gesture-handler';
 import { useTheme } from 'styled-components';
+import { AddCarts } from '../AddCarts';
 
 
 
-import { Container, Content, PizzaImg, Properties, Name, Ingredients, Price, Carts, Add, Background} from './styles';
+
+import { Container, Content, PizzaImg, Properties, Name, Ingredients, Price, Carts, Add, Background, AddContainer, } from './styles';
+
+interface PropsResquest {
+     pedido: { 
+      name: string,
+      tamanho: string
+      estilo: string
+      adicionar: string
+      total:  string}
+  }
 
 interface Props extends RectButtonProps{
     img: ImageProps,
@@ -14,15 +25,17 @@ interface Props extends RectButtonProps{
     description: string,
     price: number,
     cheked: boolean,
+    setRequest: PropsResquest
+    
     
 }
 
-export function FoodCarts({img, title, description, price, cheked}: Props) {
+export function FoodCarts({img, title, description, price, cheked, setRequest}: Props,  ) {
     const theme = useTheme()
-   
+    
   return (
     <Container cheked={cheked}>
-        {cheked ?
+        {cheked &&
     <LinearGradient style={{borderRadius: 13}} colors={[theme.colors.background_locale,theme.colors.background_primary]} start={[0, 1]} end={[1, 0]}>
         <Content>
 
@@ -35,13 +48,13 @@ export function FoodCarts({img, title, description, price, cheked}: Props) {
                 </Ingredients>
                 <Price>R$ {price}</Price>
             </Properties>
-            <Carts>
-                <Background>
-                <Add>+ Add</Add>
-                </Background>
-            </Carts>
+            
+           
+            <AddCarts name={title}  setRequest={setRequest}/>
+           
+           
         </Content>
-        </LinearGradient> : null
+        </LinearGradient> 
 }
     </Container>
   );

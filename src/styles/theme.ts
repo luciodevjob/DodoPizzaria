@@ -16,6 +16,9 @@ background_require: '#FFD9D9',
 require: '#D00000',
 options: '#E5E5E5',
 Carts: '#E86A12',
+select: "#cccc",
+
+border_Divider: '#E6E6E6',
 
 
     },
