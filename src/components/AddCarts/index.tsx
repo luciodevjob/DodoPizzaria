@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Alert, Modal, } from "react-native";
 import { 
   Add, 
@@ -32,6 +32,8 @@ import { PropRequest } from "../../screens/Home";
 interface Props {
    name: string;
    setRequest: React.Dispatch<React.SetStateAction<PropRequest[] | undefined>> 
+   request:  PropRequest[]
+  
 }
 interface PropsPrice {
   price: string;
@@ -57,7 +59,7 @@ interface PropsPrices {
     price: string
 }
 
-export function AddCarts({name, setRequest}: Props) {
+export function AddCarts({name, setRequest, request}: Props) {
  
   const [modalVisible, setModalVisible] = useState(false);
   const theme = useTheme();
@@ -71,7 +73,7 @@ export function AddCarts({name, setRequest}: Props) {
   const [choosePrice, setChoosePrice] = useState('0')
   const [extraPrice, setPriceExtra] = useState('')
 
-  const[test, setTest] = useState<PropRequest[] >([])
+ 
 
 
   const [choosesize, setchoosesize] = useState({
@@ -86,8 +88,8 @@ export function AddCarts({name, setRequest}: Props) {
 
   
   const [addOns, setAddOns] = useState({
-    name: "Massa Classica",
-    price: "0"
+    name: "",
+    price: ""
   })
  
 
@@ -113,20 +115,24 @@ export function AddCarts({name, setRequest}: Props) {
 
  const priceTotal = Number(selectPrice) + Number(choosePrice) + Number(extraPrice)
 
+
 function confirmOrder() {
-  setRequest([{
-    pedido: {
+  api.post(`/confirm` ,{
+    pedido: { 
      name,
-    choosesize,
-     selectCrust,
-     addOns,
-    priceTotal,
-    }}])
-
-
+     tamanho: choosesize,
+     estilo: selectCrust,
+     adicionar: addOns,
+     total:  priceTotal,
+    }})
+    confirmCart()
   setModalVisible(false)
 }
 
+async function confirmCart() {
+  const requestCart = await api.get('/confirm') 
+  setRequest(requestCart.data  as PropRequest[])
+}
 
   const size = [{
     key: '1',
@@ -172,7 +178,7 @@ const choice = [{
 const add = [{
   
   key: '1',
-  name: "Adicionar queijo extra",
+  name: "Queijo extra",
   price: '2.50',
   add: '+',
   opcional: true,
@@ -180,13 +186,18 @@ const add = [{
 },
 { 
   key: '2',
-  name: "Adicionar marshmallow",
+  name: "Marshmallow",
   price: '2.50',
   add: '+',
   opcional: true,
   divider: false
 },
 ]
+
+
+useEffect(() => {
+  confirmCart();
+},[]);
 
   return (
     <ViewModal>
@@ -328,4 +339,5 @@ const add = [{
     </ViewModal>
   );
 };
+
 

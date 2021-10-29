@@ -29,9 +29,29 @@ justify-content: space-between;
 `
 
 export const ButtonCarts = styled(RectButton)`
+align-items: center;
+justify-content: center;
+flex-direction: row;
+`
+export const BackgroundLenght = styled.View`
+width: 20px;
+height: 20px;
+border-radius: 10px;
+background-color:  ${({theme}) => theme.colors.Carts};
+justify-content: center;
+align-items: center;
+
+margin-left: -20px;
+;
+
 
 `
 
+export const Title = styled.Text`
+color:  ${({theme}) => theme.colors.title_white};
+
+
+`
 export const Localization = styled.View`
 width: 100%;
 height: 32px;

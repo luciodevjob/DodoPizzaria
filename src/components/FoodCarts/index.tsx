@@ -30,11 +30,10 @@ interface Props extends RectButtonProps{
     price: number,
     cheked: boolean,
     setRequest: React.Dispatch<React.SetStateAction<PropRequest[] | undefined>> 
-    
-    
+    request: PropRequest[]
 }
 
-export function FoodCarts({img, title, description, price, cheked, setRequest}: Props,  ) {
+export function FoodCarts({img, title, description, price, cheked, setRequest, request} : Props  ) {
     const theme = useTheme()
     
   return (
@@ -54,7 +53,7 @@ export function FoodCarts({img, title, description, price, cheked, setRequest}: 
             </Properties>
             
            
-            <AddCarts name={title}  setRequest={setRequest}/>
+            <AddCarts name={title}  setRequest={setRequest} request={request}/>
            
            
         </Content>

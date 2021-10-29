@@ -157,24 +157,5 @@
     }
   ],
   "confirm": [
-    {
-      "pedido": {
-        "name": "Margarita",
-        "tamanho": {
-          "name": "Media - 10”",
-          "price": "12"
-        },
-        "estilo": {
-          "name": "Massa Classica",
-          "price": "0"
-        },
-        "adicionar": {
-          "name": "Massa Classica",
-          "price": "0"
-        },
-        "total": 12
-      },
-      "id": 1
-    }
   ]
 }

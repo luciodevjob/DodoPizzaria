@@ -3,9 +3,9 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import Logo from '../../assets/logo.svg';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-import { ButtonCarts, Container, FoofWapper, Header, HeaderContent, Localization, LocalizationContent, TextLocation,} from './styles';
+import { BackgroundLenght, ButtonCarts, Container, FoofWapper, Header, HeaderContent, Localization, LocalizationContent, TextLocation, Title,} from './styles';
 import { useTheme } from 'styled-components';
-import { Alert, StatusBar } from 'react-native';
+import { Alert, Modal, StatusBar } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { FoodCarts } from '../../components/FoodCarts';
 
@@ -16,6 +16,7 @@ import { api } from '../../services/api';
 import { foodDTO, } from '../../components/dtos/FoodDTO';
 import { getFoodImagens } from '../../Utis/getFoodImagens';
 import { AddCarts } from '../../components/AddCarts';
+import { Cart } from '../../components/Cart';
 
 
 
@@ -26,13 +27,25 @@ interface MenuCard {
 }
 
 export interface PropRequest {
-  pedido :{ 
-    name: string; 
- choosesize: { name: string; price: string; }; 
- selectCrust: { name: string; price: string; }; 
- addOns: { name: string; price: string; }; 
- priceTotal: number; }
-}
+   pedido: {
+        name: string,
+        tamanho: {
+          name: string
+          price: string
+        },
+        estilo: {
+          name: string
+          price: string
+        },
+        adicionar: {
+          name: string
+          price: string
+        },
+        total: number,
+      },
+      id: number,
+    }
+
 
 interface foodCarts {
 
@@ -43,6 +56,7 @@ interface foodCarts {
     description: string,
     price: number,
     setRequest: React.Dispatch<React.SetStateAction<PropRequest | undefined>>
+    
 
 }
 
@@ -59,26 +73,43 @@ export function Home(){
   const [foodMenu, setFoodMenu] = useState<foodDTO[]>([])
   const [food, setFood] = useState<foodCarts[]>([])
   const [categories, setCategories] = useState('pizza')
+  const [cartModal, setCartModal] = useState(false)
+  const [categorySelect, setCategorySelect]  = useState(false)
 
-  const [request, setRequest] = useState()
-  console.log(request)
+  const [request, setRequest] = useState<PropRequest[]>([])
+  const [requestCart, setRequestCart] = useState()
   //console.log(request)
  
+  function openModal() {
+    setCategorySelect(true);
+}
+
+function closeModal() {
+    setCategorySelect(false);
+}
+
   useEffect(() => {
+   
     try {
     async function fetchCar() {
       const response = await api.get('/food') 
       const responseMenu = await api.get('/foodMenu') 
+     
+
       setFoodMenu(response.data as foodDTO[])
       setFood(responseMenu.data as foodCarts[])
+      
+     
     
     }
     fetchCar()
+   
   }
   catch (error) {}
    
   },[]);
   
+  console.log(request)
 function handleCategorySelect(categoryId: string){
  
   setCategories(categoryId)
@@ -94,11 +125,20 @@ function handleCategorySelect(categoryId: string){
          />
           <HeaderContent>
             <Logo width={RFValue(183)} height={30}/>
-            <ButtonCarts onPress={() => Alert.alert('to funcionando')}>
+            
+            <ButtonCarts onPress={() => openModal()}>
+           
             <FontAwesome5 
+            
               name="shopping-cart" 
               size={24} 
               color={theme.colors.Carts}/>
+               {
+                request.length > 0 &&
+                <BackgroundLenght>
+               <Title>{request.length}</Title>
+              </BackgroundLenght>}
+            
             </ButtonCarts>
           </HeaderContent>
           <Localization>
@@ -148,12 +188,24 @@ function handleCategorySelect(categoryId: string){
               description={item.description}
               price={item.price}
               setRequest={setRequest as React.Dispatch<React.SetStateAction<PropRequest[] | undefined>>}
+              request={request}
               />
              ))
            }
            </FoofWapper>
          </ScrollView>
-      
+         
+         <Modal 
+         animationType="slide"
+        transparent={true}
+        visible={categorySelect}
+        onRequestClose={() => {
+        Alert.alert("Modal has been closed.");
+        setCategorySelect(!categorySelect);
+        }}>
+            <Cart  request={request}/>
+        </Modal>
     </Container>
   );
 }
+
