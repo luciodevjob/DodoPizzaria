@@ -3,6 +3,7 @@ import React from 'react';
 import { ImageProps } from 'react-native';
 import { RectButtonProps } from 'react-native-gesture-handler';
 import { useTheme } from 'styled-components';
+import { PropRequest } from '../../screens/Home';
 import { AddCarts } from '../AddCarts';
 
 
@@ -12,12 +13,15 @@ import { Container, Content, PizzaImg, Properties, Name, Ingredients, Price, Car
 
 interface PropsResquest {
      pedido: { 
-      name: string,
-      tamanho: string
-      estilo: string
-      adicionar: string
-      total:  string}
-  }
+        pedido: { name: string,
+            tamanho: string
+            estilo: string
+            adicionar: string
+            total:  string}
+          
+          }
+    }
+  
 
 interface Props extends RectButtonProps{
     img: ImageProps,
@@ -25,7 +29,7 @@ interface Props extends RectButtonProps{
     description: string,
     price: number,
     cheked: boolean,
-    setRequest: PropsResquest
+    setRequest: React.Dispatch<React.SetStateAction<PropRequest[] | undefined>> 
     
     
 }

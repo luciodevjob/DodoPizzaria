@@ -159,7 +159,7 @@
   "confirm": [
     {
       "pedido": {
-        "name": "Calabresa",
+        "name": "Margarita",
         "tamanho": {
           "name": "Media - 10”",
           "price": "12"
@@ -169,69 +169,12 @@
           "price": "0"
         },
         "adicionar": {
-          "name": "Adicionar queijo extra",
-          "price": "2.50"
+          "name": "Massa Classica",
+          "price": "0"
         },
-        "total": 14.5
+        "total": 12
       },
       "id": 1
-    },
-    {
-      "pedido": {
-        "name": "Pepperoni clássica",
-        "tamanho": {
-          "name": "Grande - 14”",
-          "price": "16"
-        },
-        "estilo": {
-          "name": "Massa Fina",
-          "price": "0"
-        },
-        "adicionar": {
-          "name": "Adicionar marshmallow",
-          "price": "2.50"
-        },
-        "total": 18.5
-      },
-      "id": 2
-    },
-    {
-      "pedido": {
-        "name": "Margarita",
-        "tamanho": {
-          "name": "Media - 10”",
-          "price": "12"
-        },
-        "estilo": {
-          "name": "Massa Classica",
-          "price": "0"
-        },
-        "adicionar": {
-          "name": "Adicionar queijo extra",
-          "price": "2.50"
-        },
-        "total": 14.5
-      },
-      "id": 3
-    },
-    {
-      "pedido": {
-        "name": "Margarita",
-        "tamanho": {
-          "name": "Pequena - 6”",
-          "price": "8"
-        },
-        "estilo": {
-          "name": "Massa Fina",
-          "price": "0"
-        },
-        "adicionar": {
-          "name": "Adicionar queijo extra",
-          "price": "2.50"
-        },
-        "total": 10.5
-      },
-      "id": 4
     }
   ]
 }

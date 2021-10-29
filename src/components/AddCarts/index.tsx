@@ -25,11 +25,13 @@ import { AntDesign } from '@expo/vector-icons'
 import { useTheme } from "styled-components";
 import { ButtonChoose } from "../ButtonChoose";
 import { api } from "../../services/api";
-import { PropsResquest } from "../../screens/Home";
+import { PropRequest } from "../../screens/Home";
+
+
 
 interface Props {
    name: string;
-   setRequest: PropsResquest
+   setRequest: React.Dispatch<React.SetStateAction<PropRequest[] | undefined>> 
 }
 interface PropsPrice {
   price: string;
@@ -51,8 +53,8 @@ interface AddProps {
 }
 
 interface PropsPrices {
-    "name": string
-    "price": string
+    name: string
+    price: string
 }
 
 export function AddCarts({name, setRequest}: Props) {
@@ -69,16 +71,25 @@ export function AddCarts({name, setRequest}: Props) {
   const [choosePrice, setChoosePrice] = useState('0')
   const [extraPrice, setPriceExtra] = useState('')
 
+  const[test, setTest] = useState<PropRequest[] >([])
+
 
   const [choosesize, setchoosesize] = useState({
     name: "Media - 10”",
-    price: "12"})
+    price: "12"
+  })
+  
   const [selectCrust, setSelectCrust] = useState({
     
-      name: "Massa Classica",
-      price: "0"
-    })
-  const [addOns, setAddOns] = useState({})
+    name: "Massa Classica",
+      price: "0"})
+
+  
+  const [addOns, setAddOns] = useState({
+    name: "Massa Classica",
+    price: "0"
+  })
+ 
 
 
 
@@ -103,15 +114,16 @@ export function AddCarts({name, setRequest}: Props) {
  const priceTotal = Number(selectPrice) + Number(choosePrice) + Number(extraPrice)
 
 function confirmOrder() {
-  
-  setRequest({
-    pedido: { 
+  setRequest([{
+    pedido: {
      name,
-     tamanho: choosesize,
-     estilo: selectCrust,
-     adicionar: addOns,
-     total:  priceTotal,
-    }}) as PropsResquest
+    choosesize,
+     selectCrust,
+     addOns,
+    priceTotal,
+    }}])
+
+
   setModalVisible(false)
 }
 
@@ -283,7 +295,7 @@ const add = [{
           options={item.opcional}
 
           checked={item.key === extra}
-          onPress={() => handleExtra(item.key, item.price,  {name: item.name, price: item.price})}
+          onPress={() => handleExtra(item.key, item.price,  {name: item.name, price: item.price} )}
 
           />
           

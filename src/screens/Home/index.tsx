@@ -25,16 +25,14 @@ interface MenuCard {
   title: string,
 }
 
-export interface PropsResquest {
-
-   pedido: { name: string,
-    tamanho: string
-    estilo: string
-    adicionar: string
-    total:  string}
-  
-  }
-
+export interface PropRequest {
+  pedido :{ 
+    name: string; 
+ choosesize: { name: string; price: string; }; 
+ selectCrust: { name: string; price: string; }; 
+ addOns: { name: string; price: string; }; 
+ priceTotal: number; }
+}
 
 interface foodCarts {
 
@@ -44,7 +42,7 @@ interface foodCarts {
     title: string,
     description: string,
     price: number,
-    setRequest: PropsResquest
+    setRequest: React.Dispatch<React.SetStateAction<PropRequest | undefined>>
 
 }
 
@@ -62,10 +60,10 @@ export function Home(){
   const [food, setFood] = useState<foodCarts[]>([])
   const [categories, setCategories] = useState('pizza')
 
-  const [request, setRequest] = useState<PropsResquest>()
-  
+  const [request, setRequest] = useState()
   console.log(request)
-
+  //console.log(request)
+ 
   useEffect(() => {
     try {
     async function fetchCar() {
@@ -149,7 +147,7 @@ function handleCategorySelect(categoryId: string){
               title={item.title}
               description={item.description}
               price={item.price}
-              setRequest={setRequest}
+              setRequest={setRequest as React.Dispatch<React.SetStateAction<PropRequest[] | undefined>>}
               />
              ))
            }
